@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "default": "to-do-app-16bbe"
+  },
+  "targets": {
+    "to-do-app-16bbe": {
+      "hosting": {
+        "web-ui": [
+          "web-ui-2a264"
+        ]
+      }
+    }
+  },
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}

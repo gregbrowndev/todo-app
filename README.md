@@ -44,6 +44,7 @@
   - [ ] Log aggregation 
   - [ ] Metrics
   - [ ] Tracing
+  - [ ] Load testing (see https://www.artillery.io/)
 - [ ] Multiple environments
   - [ ] One Firebase project per environment
   - [ ] Set up App Check
@@ -188,3 +189,58 @@ Deploy monorepo:
 ```
 npx turbo run deploy
 ```
+
+
+# Notes
+
+To host a NextJS app on Firebase, enable web framework support:
+
+```
+firebase experiments:enable webframeworks
+```
+
+Firebase can be set up to host multiple sites in a single project. This is useful for hosting the main web app, 
+and admin dashboard, or any other sites that are related to the main app. 
+
+- Create a new site in Firebase Hosting
+
+  Enter the `SITE-ID`. This will create the two domains `SITE-ID.web.app` and `SITE-ID.firebaseapp.com`
+
+- Set up a deploy target in `.firebaserc`:
+
+  ```
+  firebase target:apply hosting TARGET_NAME SITE-ID
+  ```
+  
+  E.g.
+
+  ```
+  firebase target:apply hosting web-ui web-ui-2a264
+  ```
+
+  This will create a new target:
+
+  ```
+  "targets": {
+    "to-do-app-16bbe": {
+      "hosting": {
+        "web-ui": [
+          "web-ui-2a264"
+        ]
+      }
+    }
+  }
+  ```
+  
+- In `firebase.json`, configure the site, such as where the `public` static files are located. Note, `hosting` can be
+  an array:
+  
+  ```
+  "hosting": [
+    {
+      "target": "web-ui",
+      "public": "apps/web-ui/public",
+      ...
+    },...
+  ],  
+  ```
