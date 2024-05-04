@@ -8,6 +8,11 @@
   project? If not and given we may use Turborepo, will this lead to duplicate work if the `server`
   is consumed by multiple end-user apps?
 
+- Firebase doesn't like yarn monorepos. When deploying the `web-ui` workspace to Firebase Hosting
+  (with experimental support for NextJS), it cannot find the `@repo/server` workspace because it
+  is in the top level node_modules as a symlink. The solution seems to be to replace the dependency
+  with "@repo/server": "file:../server" in the `web-ui` workspace package.json. This is not ideal.
+  See https://github.com/firebase/firebase-tools/issues/653#issuecomment-533474365
 
 ## To Dos
 

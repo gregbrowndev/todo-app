@@ -3,24 +3,6 @@
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   },
-  "functions": [
-    {
-      "source": "apps/web-ui",
-      "codebase": "web-ui",
-      "runtime": "nodejs20",
-      "ignore": [
-        "node_modules",
-        ".git",
-        "firebase-debug.log",
-        "firebase-debug.*.log",
-        "*.local"
-      ],
-      "predeploy": [
-        "yarn --cwd \"$RESOURCE_DIR\" lint",
-        "yarn --cwd \"$RESOURCE_DIR\" build"
-      ]
-    }
-  ],
   "hosting": {
     "target": "web-ui",
     "source": "apps/web-ui",
@@ -30,7 +12,9 @@
       "**/node_modules/**"
     ],
     "frameworksBackend": {
+      "region": "europe-west1"
     },
+    "predeploy": [],
     "rewrites": [
       {
         "source": "**",

@@ -13,11 +13,13 @@
     "version-packages": "changeset version",
     "release": "turbo run build --filter=docs^... && changeset publish"
   },
-  "workspaces": [
-    "apps/*",
-    "packages/*",
-    "apps/firebase-app/functions"
-  ],
+  "workspaces": {
+    "nohoist": ["**"],
+    "packages": [
+      "apps/*",
+      "packages/*"
+    ]
+  },
   "dependencies": {
     "firebase": "^10.11.1"
   },
