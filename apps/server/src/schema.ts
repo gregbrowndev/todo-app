@@ -8,7 +8,7 @@ export const schema = createSchema({
   `,
   resolvers: {
     Query: {
-      hello: () => "world",
+      hello: () => (new Date()).toString(),
     },
   },
 });

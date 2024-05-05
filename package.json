@@ -14,7 +14,7 @@
     "release": "turbo run build --filter=docs^... && changeset publish"
   },
   "workspaces": {
-    "nohoist": ["**"],
+    "nohoist": ["**/@repo/server"],
     "packages": [
       "apps/*",
       "packages/*"

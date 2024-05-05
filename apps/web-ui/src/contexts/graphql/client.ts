@@ -1,9 +1,11 @@
+import type {
+  Client,
+  SSRExchange
+} from "@urql/next";
 import {
   cacheExchange,
-  Client,
   createClient,
   fetchExchange,
-  SSRExchange,
   ssrExchange,
 } from "@urql/next";
 import { executeExchange } from "@urql/exchange-execute";
@@ -25,7 +27,7 @@ export const makeGraphQLClient: () => [Client, SSRExchange] = () => {
   }
 
   const client = createClient({
-    url: "http://localhost:3000/api/graphql",
+    url: "/api/graphql",
     exchanges: [cacheExchange, ssr, transportExchange],
     suspense: true,
   });
