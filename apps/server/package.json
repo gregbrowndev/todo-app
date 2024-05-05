@@ -5,6 +5,7 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "lint": "eslint --config .eslintrc.js --ext .ts ./",
+    "lint:fix": "yarn lint -- --fix",
     "test": "jest --detectOpenHandles"
   },
   "main": "src/index.ts",
