@@ -18,12 +18,14 @@
     "firebase-admin": "^12.1.0",
     "firebase-functions": "^5.0.0",
     "graphql": "^16.8.1",
+    "graphql-yoga": "^5.3.0",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
     "urql": "^4.0.7"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.2",
     "@repo/eslint-config": "*",
     "@repo/jest-presets": "*",
     "@repo/typescript-config": "*",
@@ -34,6 +36,6 @@
     "eslint-config-next": "14.2.3",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5.4.5"
   }
 }

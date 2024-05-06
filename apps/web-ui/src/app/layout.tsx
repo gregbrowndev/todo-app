@@ -19,7 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <GraphqlProvider>{children}</GraphqlProvider>
+        {/*<GraphqlProvider>{children}</GraphqlProvider>*/}
+        {children}
       </body>
     </html>
   );

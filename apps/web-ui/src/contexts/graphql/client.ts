@@ -8,8 +8,7 @@ import {
   fetchExchange,
   ssrExchange,
 } from "@urql/next";
-import { executeExchange } from "@urql/exchange-execute";
-import { schema } from "@repo/server/graphql";
+// import {createLocalExecutor} from "@/lib/server.ts";
 
 export const makeGraphQLClient: () => [Client, SSRExchange] = () => {
   const isClient = typeof window !== "undefined";
@@ -21,9 +20,7 @@ export const makeGraphQLClient: () => [Client, SSRExchange] = () => {
   if (!isClient) {
     // TODO: does this need to be dynamically imported to avoid server code leaking into client-side bundle?
     // const { schema } = await import("@repo/server/graphql")
-    transportExchange = executeExchange({
-      schema,
-    });
+    // transportExchange = createLocalExecutor();
   }
 
   const client = createClient({

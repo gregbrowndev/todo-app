@@ -35,10 +35,17 @@
     - Account verification flow (verify email etc.)
     - Store credentials in Firebase Auth but User (profile/details)
       in app DB. Need workflow, or create account on first sign in.
+    - Create session cookie: https://firebase.google.com/docs/auth/admin/manage-cookies?authuser=0#create_session_cookie
   - [ ] Sign in
     - JWT or Oauth?
-  - [ ] Sign out (frontend-only)
+    - Use traditional cookie-based session management, see https://firebase.google.com/docs/auth/admin/manage-cookies?authuser=0
+    - Set up CSRF protection
+    - See https://firebase.google.com/docs/auth/admin/manage-cookies?authuser=0#sign_in
+  - [ ] Sign out 
+    - Note: clear cookie on server
+    - https://firebase.google.com/docs/auth/admin/manage-cookies?authuser=0#sign_out
   - [ ] Get ToDos
+    - Check permissions: https://firebase.google.com/docs/auth/admin/manage-cookies?authuser=0#verify_session_cookie_and_check_permissions
   - [ ] Get ToDo
   - [ ] Create ToDo
   - [ ] Edit ToDo
