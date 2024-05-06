@@ -1,19 +1,26 @@
 "use client";
 
 import React, {useMemo} from "react";
-import {GraphqlClientProvider} from "@/contexts/graphql/provider-client.tsx";
-import {GraphqlServerProvider} from "@/contexts/graphql/provider-server.tsx";
+import {cacheExchange, createClient, fetchExchange, ssrExchange, UrqlProvider} from "@urql/next";
 
-export default function GraphqlProvider({ children }: React.PropsWithChildren) {
-    const isBrowser = typeof window !== "undefined";
-    // const Provider = useMemo(() => {
-    //     return isBrowser ? GraphqlClientProvider : GraphqlServerProvider;
-    // }, [isBrowser]);
-    console.log("DEBUG: isBrowser", isBrowser)
-    const Provider = isBrowser ? GraphqlClientProvider : GraphqlServerProvider
+
+export function GraphqlProvider({ children }: React.PropsWithChildren) {
+    const [client, ssr] = useMemo(() => {
+        const isClient = typeof window !== "undefined";
+        const _ssr = ssrExchange({
+            isClient,
+        });
+        const _client = createClient({
+            url: "/api/graphql",
+            exchanges: [cacheExchange, _ssr, fetchExchange],
+            suspense: true,
+        });
+        return [_client, _ssr]
+    }, [])
+
     return (
-      <Provider>
-        {children}
-      </Provider>
-  );
+        <UrqlProvider  client={client} ssr={ssr}>
+            {children}
+        </UrqlProvider>
+    );
 }

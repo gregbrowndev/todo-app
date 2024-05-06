@@ -6,8 +6,9 @@ import {cacheExchange, createClient, fetchExchange, ssrExchange, UrqlProvider} f
 
 export function GraphqlClientProvider({ children }: React.PropsWithChildren) {
     const [client, ssr] = useMemo(() => {
+        const isClient = typeof window !== "undefined";
         const _ssr = ssrExchange({
-            isClient: true,
+            isClient,
         });
         const _client = createClient({
             url: "/api/graphql",

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import GraphqlProvider from "@/contexts/graphql/provider";
+import { GraphqlProvider } from "@/contexts/graphql/provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,8 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/*<GraphqlProvider>{children}</GraphqlProvider>*/}
-        {children}
+        <GraphqlProvider>{children}</GraphqlProvider>
       </body>
     </html>
   );
