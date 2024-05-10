@@ -486,7 +486,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.24.0"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.23.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.23.2", "@babel/runtime@^7.24.1":
   version "7.24.5"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.24.5.tgz"
   integrity sha512-Nms86NXrsaeU9vbBJKni6gXiEXZ4CVpYVzEjDH9Sb8vmZ3UljyA1GSOJl/6LGPO8EHLuSF9H+IxNXHPX8QHJ4g==
@@ -5244,10 +5244,10 @@ firebase-functions@^5.0.1:
     express "^4.17.1"
     protobufjs "^7.2.2"
 
-firebase-tools@13.8.1:
-  version "13.8.1"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-13.8.1.tgz#579b7bee6eee0b86bfa733c73749e356c1ac3670"
-  integrity sha512-DX6QhPh1A7ctNvrIP3zhu59YAu9AdzvUW7A9D2FkfjmS6XCmNct6tTGhMW0N3tcbPUvlnqZzzePFDy7+JUWsUQ==
+firebase-tools@^13.8.0:
+  version "13.8.2"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-13.8.2.tgz#daa46ab0015a9c6df4c2a0f4d9da101145883efc"
+  integrity sha512-63g2mUzRZeumla26lTr2jmenLQ3g7im75ExfoXjLx1TwB1KlMqyoTk58jcGPde0Vz4ZFTAxNLihsbWhziNhQHw==
   dependencies:
     "@google-cloud/cloud-sql-connector" "^1.2.3"
     "@google-cloud/pubsub" "^3.0.1"
@@ -10198,6 +10198,13 @@ synckit@0.9.0, synckit@^0.9.0:
   dependencies:
     "@pkgr/core" "^0.1.0"
     tslib "^2.6.2"
+
+tailwind-merge@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/tailwind-merge/-/tailwind-merge-2.3.0.tgz#27d2134fd00a1f77eca22bcaafdd67055917d286"
+  integrity sha512-vkYrLpIP+lgR0tQCG6AP7zZXCTLc1Lnv/CCRT3BqJ9CZ3ui2++GPaGb1x/ILsINIMSYqqvrpqjUFsMNLlW99EA==
+  dependencies:
+    "@babel/runtime" "^7.24.1"
 
 tailwindcss@^3.4.1:
   version "3.4.3"
