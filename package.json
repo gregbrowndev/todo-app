@@ -7,15 +7,18 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
-    "clean": "turbo run clean && rm -rf node_modules",
+    "clean": "turbo run clean && rm -rf node_modules .firebase",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "typecheck": "turbo run typecheck",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo run build --filter=docs^... && changeset publish"
+    "release": "turbo run build --filter=docs^... && changeset publish",
+    "firebase:kill": "npx kill-port 5002 8080 8085 9000 9099 9199"
   },
   "workspaces": {
-    "nohoist": ["**/@repo/server"],
+    "nohoist": [
+      "**/@repo/server"
+    ],
     "packages": [
       "apps/*",
       "packages/*"
