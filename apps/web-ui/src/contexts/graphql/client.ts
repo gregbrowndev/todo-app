@@ -1,8 +1,6 @@
-import type {
-  Client,
-  SSRExchange
-} from "@urql/next";
 import {
+  type Client,
+  type SSRExchange,
   cacheExchange,
   createClient,
   fetchExchange,

@@ -1,14 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    webpack(config, context) {
-        config.module.rules.push(
-            {
-                test: /\.graphql$/,
-                use: 'raw-loader',
-            }
-        )
-        return config
-    }
+    webpack: (config, { isServer }) => {
+        if (!isServer) {
+        }
+        return config;
+    },
+    experimental: {
+        instrumentationHook: true,
+    },
 };
 
 export default nextConfig;
